@@ -2,12 +2,7 @@ import { useMemo, useState } from "react";
 import { type User, usStates } from "./makeData";
 
 import {
-  // MaterialReactTable,
-  // createRow,
   type MRT_ColumnDef,
-  // type MRT_Row,
-  // type MRT_TableOptions,
-  // useMaterialReactTable,
 } from "material-react-table";
 
 const validateRequired = (value: string) => !!value.length;
@@ -123,94 +118,3 @@ const Columns = () => {
 };
 
 export default Columns;
-
-// const columns = useMemo<MRT_ColumnDef<User>[]>(
-//     () => [
-//       {
-//         accessorKey: "id",
-//         header: "Id",
-//         enableEditing: false,
-//         size: 80,
-//       },
-//       {
-//         accessorKey: "firstName",
-//         header: "First Name",
-//         muiEditTextFieldProps: ({ cell, row }) => ({
-//           type: "text",
-//           required: true,
-//           error: !!validationErrors?.[cell.id],
-//           helperText: validationErrors?.[cell.id],
-//           //store edited user in state to be saved later
-//           onBlur: (event) => {
-//             const validationError = !validateRequired(event.currentTarget.value)
-//               ? "Required"
-//               : undefined;
-//             setValidationErrors({
-//               ...validationErrors,
-//               [cell.id]: validationError,
-//             });
-//             setEditedUsers({ ...editedUsers, [row.id]: row.original });
-//           },
-//         }),
-//       },
-//       {
-//         accessorKey: "lastName",
-//         header: "Last Name",
-//         muiEditTextFieldProps: ({ cell, row }) => ({
-//           type: "text",
-//           required: true,
-//           error: !!validationErrors?.[cell.id],
-//           helperText: validationErrors?.[cell.id],
-//           //store edited user in state to be saved later
-//           onBlur: (event) => {
-//             const validationError = !validateRequired(event.currentTarget.value)
-//               ? "Required"
-//               : undefined;
-//             setValidationErrors({
-//               ...validationErrors,
-//               [cell.id]: validationError,
-//             });
-//             setEditedUsers({ ...editedUsers, [row.id]: row.original });
-//           },
-//         }),
-//       },
-//       {
-//         accessorKey: "email",
-//         header: "Email",
-//         muiEditTextFieldProps: ({ cell, row }) => ({
-//           type: "email",
-//           required: true,
-//           error: !!validationErrors?.[cell.id],
-//           helperText: validationErrors?.[cell.id],
-//           //store edited user in state to be saved later
-//           onBlur: (event) => {
-//             const validationError = !validateEmail(event.currentTarget.value)
-//               ? "Incorrect Email Format"
-//               : undefined;
-//             setValidationErrors({
-//               ...validationErrors,
-//               [cell.id]: validationError,
-//             });
-//             setEditedUsers({ ...editedUsers, [row.id]: row.original });
-//           },
-//         }),
-//       },
-//       {
-//         accessorKey: "state",
-//         header: "State",
-//         editVariant: "select",
-//         editSelectOptions: usStates,
-//         muiEditTextFieldProps: ({ row }) => ({
-//           select: true,
-//           error: !!validationErrors?.state,
-//           helperText: validationErrors?.state,
-//           onChange: (event) =>
-//             setEditedUsers({
-//               ...editedUsers,
-//               [row.id]: { ...row.original, state: event.target.value },
-//             }),
-//         }),
-//       },
-//     ],
-//     [editedUsers, validationErrors]
-//   );
